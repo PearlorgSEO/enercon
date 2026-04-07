@@ -1,0 +1,168 @@
+/* Contact Form Styles */
+.wpforms-container-full {
+  width: 100%;
+}
+
+.wpforms-form {
+  border: 1px solid #ddd;
+  padding: 30px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.wpforms-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wpforms-field {
+  width: 100%;
+}
+
+.wpforms-field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.wpforms-required-label {
+  color: #d63637;
+}
+
+.wpforms-field-name fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wpforms-field-name legend {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.wpforms-field-row {
+  display: flex;
+  gap: 15px;
+}
+
+.wpforms-field-row-block {
+  flex: 1;
+}
+
+.wpforms-one-half {
+  width: 50%;
+}
+
+.wpforms-field-sublabel {
+  display: block;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #666;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #84b36c;
+}
+
+.wpforms-field-medium {
+  max-width: 100%;
+}
+
+textarea.wpforms-field-medium {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.wpforms-error {
+  border-color: #d63637 !important;
+}
+
+.wpforms-error-message {
+  color: #d63637;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.wpforms-submit-container {
+  margin-top: 20px;
+}
+
+.wpforms-submit {
+  padding: 12px 40px;
+  background: #84b36c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wpforms-submit:hover:not(:disabled) {
+  background: #d89b33;
+}
+
+.wpforms-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.wpforms-submit-success {
+  padding: 15px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.wpforms-submit-error {
+  padding: 15px;
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .wpforms-form {
+    padding: 20px;
+  }
+
+  .wpforms-field-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .wpforms-one-half {
+    width: 100%;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}

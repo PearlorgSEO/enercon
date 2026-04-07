@@ -1,0 +1,96 @@
+.pl-section {
+  padding: 50px 0;
+  background: #fff;
+}
+
+.pl-card {
+  background: #f8f9fa;
+  border-radius: 20px;
+  padding: 40px 32px 36px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.pl-heading {
+  font-size: 32px;
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.pl-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pl-item {
+  width: 280px;
+  background: #84b36c;
+  border: 2px solid #db9b33;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.pl-item:hover {
+  transform: translateY(-5px);
+}
+
+.pl-item h3 {
+  color: #fff;
+  font-size: 18px;
+  margin: 7px 0;
+}
+
+.pl-preview-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.pl-download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.pl-download-btn:hover {
+  background: #eee;
+  color: #84b36c;
+}
+
+/* icon spacing inside download button */
+.pl-pdf-icon {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.pl-download-text {
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .pl-card {
+    padding: 24px 12px 20px;
+  }
+
+  .pl-heading {
+    font-size: 24px;
+  }
+
+  .pl-item {
+    width: 100%;
+  }
+}

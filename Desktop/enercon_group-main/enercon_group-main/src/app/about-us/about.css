@@ -1,0 +1,177 @@
+/* About Page Styles */
+.page-content.about-page {
+  background: #fff;
+}
+/* previous page-title and breadcrumb rules removed since we use component */
+.content-container {
+  padding: 30px 15px 80px;
+}
+
+.aboutText,
+.aboutText1,
+.aboutText2 {
+  padding: 32px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  margin: 26px 0;
+}
+
+.about-flex {
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 14px;
+}
+
+.aboutText .about-text p,
+.aboutText1 .about-text p {
+  line-height: 2.2;
+}
+
+.about-image-card {
+  flex: 1;
+  min-width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  display: flex;
+}
+
+.about-image-card-1 {
+  max-height: 360px;
+}
+
+.about-image-card-2 {
+  max-height: 560px;
+}
+
+.about-image-card-3 {
+  max-height: 340px;
+}
+
+.about-image-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.about-image-contain img {
+  object-fit: contain;
+  background: #fff;
+}
+
+.about-paragraph {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  margin-top: 14px;
+}
+
+.about-values-section {
+  background: #f8f9fa;
+  padding: 32px;
+  border-radius: 20px;
+  margin: 40px 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.about-values-section h2 {
+  text-align: left;
+  color: #000;
+  font-size: 28px;
+  margin: 0 0 24px;
+  font-weight: 600;
+}
+
+.about-values-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.about-value-circle {
+  width: 220px;
+  height: 220px;
+  border: 3px solid #db9b33;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  padding: 18px;
+  background: #fff;
+}
+
+
+@media (max-width: 900px) {
+  .about-values-section h2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .aboutText,
+  .aboutText1,
+  .aboutText2,
+  .about-values-section {
+    padding: 0px;
+  }
+
+  .about-image-card {
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutText,
+  .aboutText1,
+  .aboutText2,
+  .about-values-section {
+    padding: 12px;
+  }
+
+  .about-image-card-1 {
+    max-height: 250px;
+  }
+
+  .about-image-card-2 {
+    max-height: 340px;
+  }
+
+  .about-image-card-3 {
+    max-height: 260px;
+  }
+
+  .about-value-circle {
+    width: 200px;
+    height: 200px;
+    font-size: 16px;
+  }
+}
