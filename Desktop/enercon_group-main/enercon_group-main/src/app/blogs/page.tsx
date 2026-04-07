@@ -70,18 +70,27 @@
 
 
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
 import Link from 'next/link';
 import '../products.css';
 import { buildMetadata } from '@/lib/seo';
 
-// Use any type here
-const projects: any[] = [
+// ✅ Define a type for each project
+interface Project {
+  id: string;
+  src: string;
+  name: string;
+}
+
+// ✅ Typed project array
+const projects: Project[] = [
   { id: '1', src: '/images/projects/cp1.webp', name: 'LOGISTICS HUB WAREHOUSE' },
   { id: '2', src: '/images/projects/cp2.webp', name: 'COMMERCIAL CENTER' },
 ];
 
-export const metadata: any = buildMetadata({
+// ✅ Metadata with proper type
+export const metadata: Metadata = buildMetadata({
   title: 'Completed Waterproofing Projects | Enercon Group',
   description:
     'View completed Enercon projects across industrial and commercial sectors, including roof restoration, waterproofing, and coating applications.',
@@ -89,9 +98,9 @@ export const metadata: any = buildMetadata({
   keywords: ['waterproofing projects', 'roof coating case studies', 'enercon completed projects'],
 });
 
-export default function CompletedProjectsPage(): any {
-  // Group projects into rows of 2
-  const rows: any[] = [];
+export default function CompletedProjectsPage(): JSX.Element {
+  // ✅ Group projects into rows of 2
+  const rows: Project[][] = [];
   for (let i = 0; i < projects.length; i += 2) {
     rows.push(projects.slice(i, i + 2));
   }
@@ -105,9 +114,9 @@ export default function CompletedProjectsPage(): any {
           <div className="projectdiv2">
             <h2 className="projects-page-heading">Our Blogs</h2>
             <div className="projects-grid">
-              {rows.map((row: any, rowIndex: any) => (
+              {rows.map((row: Project[], rowIndex: number) => (
                 <div key={rowIndex} className="project-row">
-                  {row.map((project: any, index: any) => (
+                  {row.map((project: Project, index: number) => (
                     <div key={index} className="project-card">
                       <div className="card-image">
                         <Image
