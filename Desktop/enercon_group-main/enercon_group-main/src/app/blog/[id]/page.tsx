@@ -65,36 +65,52 @@
 //   );
 // }
 
+
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
-// Same data (better: move to separate file in real project)
-const projects: any[] = [
-  { 
+interface Project {
+  id: string;
+  name: string;
+  src: string;
+  descripttion: string;
+  metaTitle: string;
+  metaDescription: string;
+}
+
+interface BlogPageProps {
+  params: { id: string };
+}
+
+const projects: Project[] = [
+  {
     id: '1',
-    name: 'LOGISTICS HUB WAREHOUSE', 
-    src: '/images/projects/cp1.webp', 
-    descripttion: 'Lorem ipsum 1 Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1 Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1' , 
+    name: 'LOGISTICS HUB WAREHOUSE',
+    src: '/images/projects/cp1.webp',
+    descripttion:
+      'Lorem ipsum 1 Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1 Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1Lorem ipsum 1',
     metaTitle: 'Logistics Hub Warehouse Project | Enercon',
-    metaDescription: 'Detailed case study of logistics hub waterproofing project.'
+    metaDescription: 'Detailed case study of logistics hub waterproofing project.',
   },
-  { 
+  {
     id: '2',
-    name: 'COMMERCIAL CENTER', 
-    src: '/images/projects/cp2.webp', 
-    descripttion: 'Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2', 
-    metaTitle: 'Logistics Hub Warehouse Project | Enercon',
-    metaDescription: 'Detailed case study of logistics hub waterproofing project.' 
+    name: 'COMMERCIAL CENTER',
+    src: '/images/projects/cp2.webp',
+    descripttion:
+      'Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2Lorem ipsum 2',
+    metaTitle: 'Commercial Center Project | Enercon',
+    metaDescription: 'Detailed case study of commercial center waterproofing project.',
   },
 ];
 
-export async function generateMetadata({ params }: any): Promise<any> {
-  const blog = projects.find((item: any) => item.id === params.id);
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const blog = projects.find((item) => item.id === params.id);
 
   if (!blog) {
     return {
       title: 'Blog Not Found',
-      description: 'This blog does not exist'
+      description: 'This blog does not exist',
     };
   }
 
@@ -104,24 +120,24 @@ export async function generateMetadata({ params }: any): Promise<any> {
   };
 }
 
-export default function BlogDetailPage({ params }: any) {
-  const blog = projects.find((item: any) => item.id === params.id);
+export default function BlogDetailPage({ params }: BlogPageProps) {
+  const blog = projects.find((item) => item.id === params.id);
 
   if (!blog) return notFound();
 
   return (
-    <div style={{ padding: '40px', textAlign: 'center' }}>
+    <div style={{ padding: '40px', textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
       <h1>{blog.name}</h1>
 
-      <img
+      <Image
         src={blog.src}
         alt={blog.name}
-        style={{ width: '100%', maxWidth: '600px', marginTop: '20px' }}
+        width={600}
+        height={400}
+        style={{ width: '100%', height: 'auto', marginTop: '20px' }}
       />
 
-      <p style={{ marginTop: '20px' }}>
-        {blog.descripttion}
-      </p>
+      <p style={{ marginTop: '20px' }}>{blog.descripttion}</p>
     </div>
   );
 }
